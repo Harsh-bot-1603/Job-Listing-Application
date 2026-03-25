@@ -25,8 +25,8 @@ public class SearchRepositoryImplementation implements SearchRepository  {
 	@Override
 	public List<Post> findByText(String text){
 		final List<Post> posts = new ArrayList<>();
-		MongoDatabase database = client.getDatabase("harsh");
-		MongoCollection<Document> collection = database.getCollection("JobPost");
+		MongoDatabase database = client.getDatabase("<DataBaseName>");
+		MongoCollection<Document> collection = database.getCollection("<CollectionName>");
 		AggregateIterable<Document> result = collection.aggregate(Arrays.asList(new Document("$search", 
 		    new Document("index", "default")
 		            .append("text", 
